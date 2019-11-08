@@ -4397,8 +4397,10 @@ Err_Renamed:
             g_BMS.strDir = VB.Left(.FileName, Len(.FileName) - Len(strArray(UBound(strArray))))
             g_BMS.strFileName = strArray(UBound(strArray))
 
-            ' 自動バックアップフォルダがあるか確認、なかったら作成
-
+            '自動バックアップフォルダがあるか確認、なかったら作成
+            If Not System.IO.Directory.Exists(g_BMS.strDir & "\backups") Then
+                System.IO.Directory.CreateDirectory(g_BMS.strDir & "\backups")
+            End If
 
             Call modInput.LoadBMS()
 
@@ -6364,6 +6366,21 @@ Err_Renamed:
 
         DarkPen.Dispose()
         LightPen.Dispose()
+
+    End Sub
+
+    Dim count_timer As Integer
+
+    Private Sub tmrAutosave_Tick(sender As Object, e As EventArgs) Handles tmrAutosave.Tick
+        If g_BMS.strDir <> "" Then
+            count_timer += 1
+            '30秒過ぎたら
+            If count_timer > 30 Then
+                count_timer = 0
+
+                Call modOutput.CreateBMS(g_BMS.strDir & "\backups\" & DateTime.Now.ToString("yyMMddhhmm") & "_" & g_BMS.strFileName, 1)
+            End If
+        End If
 
     End Sub
 End Class

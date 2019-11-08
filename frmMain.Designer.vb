@@ -470,6 +470,7 @@
         Me.SepResolution = New System.Windows.Forms.ToolStripSeparator()
         Me.Resolution = New System.Windows.Forms.ToolStripSeparator()
         Me.lblDirectInput = New System.Windows.Forms.Label()
+        Me.tmrAutosave = New System.Windows.Forms.Timer(Me.components)
         Me.MainMenu1.SuspendLayout()
         Me.mnuContext.SuspendLayout()
         Me.mnuContextList.SuspendLayout()
@@ -2539,7 +2540,7 @@
         '
         Me.ToolStripMenuItem0.Enabled = False
         Me.ToolStripMenuItem0.Name = "ToolStripMenuItem0"
-        Me.ToolStripMenuItem0.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem0.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem0.Text = "&1:"
         Me.ToolStripMenuItem0.Visible = False
         '
@@ -2547,7 +2548,7 @@
         '
         Me.ToolStripMenuItem1.Enabled = False
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem1.Text = "&2:"
         Me.ToolStripMenuItem1.Visible = False
         '
@@ -2555,7 +2556,7 @@
         '
         Me.ToolStripMenuItem2.Enabled = False
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem2.Text = "&3:"
         Me.ToolStripMenuItem2.Visible = False
         '
@@ -2563,7 +2564,7 @@
         '
         Me.ToolStripMenuItem3.Enabled = False
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem3.Text = "&4:"
         Me.ToolStripMenuItem3.Visible = False
         '
@@ -2571,7 +2572,7 @@
         '
         Me.ToolStripMenuItem4.Enabled = False
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem4.Text = "&5:"
         Me.ToolStripMenuItem4.Visible = False
         '
@@ -2579,7 +2580,7 @@
         '
         Me.ToolStripMenuItem5.Enabled = False
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem5.Text = "&6:"
         Me.ToolStripMenuItem5.Visible = False
         '
@@ -2587,7 +2588,7 @@
         '
         Me.ToolStripMenuItem6.Enabled = False
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem6.Text = "&7:"
         Me.ToolStripMenuItem6.Visible = False
         '
@@ -2595,7 +2596,7 @@
         '
         Me.ToolStripMenuItem7.Enabled = False
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem7.Text = "&8:"
         Me.ToolStripMenuItem7.Visible = False
         '
@@ -2603,7 +2604,7 @@
         '
         Me.ToolStripMenuItem8.Enabled = False
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem8.Text = "&9:"
         Me.ToolStripMenuItem8.Visible = False
         '
@@ -2611,7 +2612,7 @@
         '
         Me.ToolStripMenuItem9.Enabled = False
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem9.Text = "&10:"
         Me.ToolStripMenuItem9.Visible = False
         '
@@ -2774,6 +2775,11 @@
         Me.lblDirectInput.TabIndex = 95
         Me.lblDirectInput.Text = "Direct"
         '
+        'tmrAutosave
+        '
+        Me.tmrAutosave.Enabled = True
+        Me.tmrAutosave.Interval = 10000
+        '
         'frmMain
         '
         Me.AllowDrop = True
@@ -2824,7 +2830,6 @@
         Me._fraTop_1.ResumeLayout(False)
         Me._fraTop_1.PerformLayout()
         Me._fraTop_2.ResumeLayout(False)
-        Me._fraTop_2.PerformLayout()
         Me.fraMaterial.ResumeLayout(False)
         Me._fraBottom_4.ResumeLayout(False)
         Me._fraBottom_4.PerformLayout()
@@ -2851,5 +2856,6 @@
     Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem9 As ToolStripMenuItem
+    Public WithEvents tmrAutosave As Timer
 #End Region
 End Class
